@@ -53,7 +53,6 @@ MONTHS = {m: i for i, m in enumerate(
 
 
 def parse_ts(s: str) -> float | None:
-    """'10/Oct/2023:13:55:36 +0300' -> epoch (без strptime: быстрее и не зависит от локали)."""
     try:
         tz = s[21:26]
         off = (int(tz[1:3]) * 3600 + int(tz[3:5]) * 60) * (-1 if tz[0] == "-" else 1)
@@ -447,7 +446,6 @@ _CTRL = re.compile(r"[\x00-\x1f\x7f-\x9f\u202a-\u202e\u2066-\u2069]")
 
 
 def safe(s, limit: int = 80) -> str:
-    """Данные из лога — недоверенные: вычищаем управляющие символы (ANSI-инъекции, RLO)."""
     s = _CTRL.sub("·", str(s))
     return s if len(s) <= limit else s[: limit - 1] + "…"
 
