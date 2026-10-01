@@ -1,12 +1,4 @@
-
-"""
-Использование:
-    soc_sentinel.py analyze /logs/access.log
-    soc_sentinel.py analyze /logs                # каталог: все *access*.log*, включая .gz
-    cat access.log | soc_sentinel.py analyze -   # stdin
-"""
 from __future__ import annotations
-
 import argparse
 import gzip
 import ipaddress
