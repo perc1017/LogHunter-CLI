@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Использование:
     soc_sentinel.py analyze /logs/access.log
